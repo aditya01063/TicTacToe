@@ -4,11 +4,20 @@ public class TicTacToe {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        // String s =
         System.out.println("Do you want to play tic tac toe game with me: ");
-        boolean a = true;
-        TicTacToe game = new TicTacToe();
-        game.base(a);
+        String condition = sc.next();
+        if (condition.equals("y")) {
+            boolean a = true;
+            TicTacToe game = new TicTacToe();
+            game.base(a);
+        } else if(condition.equals("n")){
+            System.out.println("Quiting the game");
+
+        }
+        else{
+            System.out.println("Wrong Input");
+            System.out.println("Try again");
+        }
         sc.close();
 
     }
@@ -19,13 +28,11 @@ public class TicTacToe {
         while (n == true) {
             for (int i = 0; i < 6; i++) {
                 for (int j = 0; j < 6; j++) {
-                    if (j==1 || j ==4) {
+                    if (j == 1 || j == 4) {
                         System.out.print("|");
-                    }
-                    else if (i==1 || i == 3){
+                    } else if (i == 1 || i == 3) {
                         System.out.print("_");
-                    }
-                     else {
+                    } else {
                         System.out.print(" ");
                     }
                 }
@@ -36,10 +43,9 @@ public class TicTacToe {
             if (d == 1) {
                 // n = false;
                 continue;
-            } else if (d==0){
+            } else if (d == 0) {
                 break;
-            }
-            else {
+            } else {
                 System.out.println("Wrong input");
                 break;
             }
