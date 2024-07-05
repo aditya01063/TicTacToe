@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTac {
@@ -31,17 +32,23 @@ public class TicTac {
                 int pm = sc.nextInt();
                 pm = pm - 1;
                 if (pm >= 0 && pm <= 9) {
-                    for (String i : bd) {
-                        // System.out.println(i);
-                        if (i.equals("X")) {
-                            System.out.println("Space occupied\nTry another move");
+                    // for (String i : bd) {
+                    // // System.out.println(i);
+                    // if (i.equals("X") || i.equals("O")) {
+                    // System.out.println("Space occupied\nTry another move");
 
-                        }
-                    }
+                    // }
+                    // }
                     // System.out.println("Value entered in board");
-                    bd[pm] = symbol1;
-                    printBoard(bd);
 
+                    if (bd[pm].equals("O") || bd[pm].equals("X")) {
+                        System.out.println("Space occpied");
+                    } else {
+
+                        bd[pm] = symbol1;
+                        printBoard(bd);
+                        computerMove(bd);
+                    }
 
                 } else {
                     System.out.println("Invalid move");
@@ -55,8 +62,30 @@ public class TicTac {
         }
         // sc.close();
     }
-    public static void computerMove(String[] bd){
-        
+
+    public static void computerMove(String[] bd) {
+        Random rand = new Random();
+        while (true) {
+
+            int cm = rand.nextInt(9);
+            // for (String i : bd) {
+            // if (i.equals("X") || i.equals("O")) {
+            // System.out.println("Space occupied");
+
+            // }
+
+            // }
+            String symbol2 = "O";
+            if (bd[cm].equals("O") || bd[cm].equals("X")) {
+                System.out.println("Space Occupied");
+            } else {
+
+                bd[cm] = symbol2;
+                printBoard(bd);
+                playerMove(bd);
+            }
+
+        }
     }
 
 }
