@@ -26,18 +26,21 @@ public class TicTacToe {
         Scanner sc = new Scanner(System.in);
 
         while (n == true) {
+            
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 5; j++) {
                     if (j == 1 || j == 3) {
                         System.out.print("|");
                     } else if (i == 1 || i == 3) {
                         System.out.print("_");
-                    } else {
+                    } 
+                    else {
                         System.out.print("*");
                     }
                 }
                 System.out.println();
             }
+            
             System.out.println("Wana play again (1/0)");
             int d = sc.nextInt();
             if (d == 1) {
