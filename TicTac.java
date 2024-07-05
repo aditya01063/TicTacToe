@@ -1,3 +1,4 @@
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -47,7 +48,10 @@ public class TicTac {
 
                         bd[pm] = symbol1;
                         printBoard(bd);
+                        checkWinner(bd);
                         computerMove(bd);
+
+
                     }
 
                 } else {
@@ -82,10 +86,64 @@ public class TicTac {
 
                 bd[cm] = symbol2;
                 printBoard(bd);
+                checkWinner(bd);
                 playerMove(bd);
             }
 
         }
     }
 
+    public static void checkWinner(String[] bd) {
+
+        for (int i = 0; i < 8; i++) {
+            String line = null;
+            switch (i) {
+                case 0:
+                    line = bd[0] + bd[1] + bd[2];
+                    break;
+
+                case 1:
+                    line = bd[3] + bd[4] + bd[5];
+                    break;
+
+                case 2:
+                    line = bd[6] + bd[7] + bd[8];
+                    break;
+                case 3:
+                    line = bd[0] + bd[4] + bd[8];
+                    break;
+                case 4:
+                    line = bd[2] + bd[4] + bd[6];
+                    break;
+                case 5:
+                    line = bd[0] + bd[3] + bd[6];
+                    break;
+                case 6:
+                    line = bd[1] + bd[4] + bd[7];
+                    break;
+
+                case 7:
+                    line = bd[2] + bd[5] + bd[8];
+                    break;
+                // case 8:
+                //     line = bd[-1] + bd[1] + bd[2];
+                //     break;
+
+            }
+            if (line.equals("XXX")){
+                System.out.println("Player Won");
+                break;
+            }
+            else if (line.equals("OOO")){
+                System.out.println("Computer Won");
+                break;
+            }
+            else {
+                System.out.println("Draw");
+                break;
+            }
+        }   
+
+
+    }
 }
