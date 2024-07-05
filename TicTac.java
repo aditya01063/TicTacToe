@@ -1,17 +1,11 @@
 import java.util.Scanner;
 
 public class TicTac {
+
     public static void main(String[] args) {
-        String[] board = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+        final String[] board = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
         printBoard(board);
-        Scanner sc = new Scanner(System.in);
-        String playermove = sc.nextLine();
-        System.out.println("Enter your choice player X - (1-9): ");
-        char turn = 'X';
-
-        // char symbol2 = 'O';
-
-        sc.close();
+        playerMove(board);
 
     }
 
@@ -26,7 +20,43 @@ public class TicTac {
         System.out.println("-----------------------");
     }
 
-    public static void playerMove(String s) {
+    public static void playerMove(String[] bd) {
+        Scanner sc = new Scanner(System.in);
+        // bolean x = True;
+        String symbol1 = "X";
+        while (true) {
+            System.out.println("Enter your choice player X - (1-9): ");
+            // Evaluating moves wether it is valid or not
+            try {
+                int pm = sc.nextInt();
+                pm = pm - 1;
+                if (pm >= 0 && pm <= 9) {
+                    for (String i : bd) {
+                        // System.out.println(i);
+                        if (i.equals("X")) {
+                            System.out.println("Space occupied\nTry another move");
 
+                        }
+                    }
+                    // System.out.println("Value entered in board");
+                    bd[pm] = symbol1;
+                    printBoard(bd);
+
+
+                } else {
+                    System.out.println("Invalid move");
+                }
+            } catch (Exception e) {
+                System.out.println("Only Integer input value \nTry again");
+                break;
+
+            }
+
+        }
+        // sc.close();
     }
+    public static void computerMove(String[] bd){
+        
+    }
+
 }
