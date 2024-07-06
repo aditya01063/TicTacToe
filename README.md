@@ -1,1 +1,1 @@
-Just a simple tic tac toe game 
+Just a simple tic tac toe game in java console
