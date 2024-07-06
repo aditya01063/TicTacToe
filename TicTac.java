@@ -44,7 +44,8 @@ public class TicTac {
 
                     if (bd[pm].equals("O") || bd[pm].equals("X")) {
                         System.out.println("Space occpied");
-                    } else {
+                    }
+                     else {
 
                         bd[pm] = symbol1;
                         printBoard(bd);
@@ -80,9 +81,16 @@ public class TicTac {
 
             // }
             String symbol2 = "O";
+            // for (int i=0; i<9; i++){
+            //     if (bd[i].equals(symbol2) || bd[i].equals("X")){
+                    
+            //     }
+            // }
             if (bd[cm].equals("O") || bd[cm].equals("X")) {
-                System.out.println("Space Occupied");
-            } else {
+                System.out.println("Space Occupieddddd");
+            } 
+            
+            else {
 
                 bd[cm] = symbol2;
                 printBoard(bd);
@@ -95,7 +103,7 @@ public class TicTac {
 
     public static void checkWinner(String[] bd) {
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8;) {
             String line = null;
             switch (i) {
                 case 0:
