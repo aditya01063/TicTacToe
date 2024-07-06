@@ -1,4 +1,3 @@
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -23,49 +22,50 @@ public class TicTac {
     }
 
     public static void playerMove(String[] bd) {
-        Scanner sc = new Scanner(System.in);
-        // bolean x = True;
-        String symbol1 = "X";
-        while (true) {
-            System.out.println("Enter your choice player X - (1-9): ");
-            // Evaluating moves wether it is valid or not
-            try {
-                int pm = sc.nextInt();
-                pm = pm - 1;
-                if (pm >= 0 && pm <= 9) {
-                    // for (String i : bd) {
-                    // // System.out.println(i);
-                    // if (i.equals("X") || i.equals("O")) {
-                    // System.out.println("Space occupied\nTry another move");
+        try (Scanner sc = new Scanner(System.in)) {
+            // bolean x = True;
+            String symbol1 = "X";
+            while (true) {
+                System.out.println("Enter your choice player X - (1-9): ");
+                // Evaluating moves wether it is valid or not
+                try {
+                    int pm = sc.nextInt();
+                    pm = pm - 1;
+                    if (pm >= 0 && pm <= 9) {
+                        // for (String i : bd) {
+                        // // System.out.println(i);
+                        // if (i.equals("X") || i.equals("O")) {
+                        // System.out.println("Space occupied\nTry another move");
 
-                    // }
-                    // }
-                    // System.out.println("Value entered in board");
+                        // }
+                        // }
+                        // System.out.println("Value entered in board");
 
-                    if (bd[pm].equals("O") || bd[pm].equals("X")) {
-                        System.out.println("Space occpied");
+                        if (bd[pm].equals("O") || bd[pm].equals("X")) {
+                            System.out.println("Space occpied");
+                        }
+                         else {
+
+                            bd[pm] = symbol1;
+                            printBoard(bd);
+                            checkWinner(bd);
+                            computerMove(bd);
+
+
+                        }
+
+                    } else {
+                        System.out.println("Invalid move");
                     }
-                     else {
+                } catch (Exception e) {
+                    System.out.println("Only Integer input value \nTry again");
+                    break;
 
-                        bd[pm] = symbol1;
-                        printBoard(bd);
-                        checkWinner(bd);
-                        computerMove(bd);
-
-
-                    }
-
-                } else {
-                    System.out.println("Invalid move");
                 }
-            } catch (Exception e) {
-                System.out.println("Only Integer input value \nTry again");
-                break;
 
             }
-
+            // sc.close();
         }
-        // sc.close();
     }
 
     public static void computerMove(String[] bd) {
